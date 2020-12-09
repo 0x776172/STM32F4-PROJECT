@@ -83,17 +83,17 @@ int main(void)
 		  }
 		  break;
 
-	  case kembalian500:
+	  case kembalian500: //change of money
 		  ONkembalian500();
 		  currState = dropCC;
 		  break;
 
-	  case kembalian1000:
+	  case kembalian1000: //chang of money
 		  ONkembalian1000();
 		  currState = dropCC;
 		  break;
 
-	  case batal:
+	  case batal: //state for cancelling process
 		  if(prevstate == s500){
 			  ONkembalian500();
 			  currState = s0;
@@ -111,7 +111,7 @@ int main(void)
   }
 }
 
-uint8_t detect500(void){
+uint8_t detect500(void){ //detect coin of 500
 	uint8_t flag500 = 0;
 	if(HAL_GPIO_ReadPin(GPIOB, btn500_Pin) == GPIO_PIN_SET){
 		HAL_Delay(50);
@@ -123,7 +123,7 @@ uint8_t detect500(void){
 	return flag500;
 }
 
-uint8_t detect1000(void){
+uint8_t detect1000(void){ // detect coin 1000
 	uint8_t flag1000 = 0;
 	if(HAL_GPIO_ReadPin(GPIOB, btn1000_Pin) == GPIO_PIN_SET){
 		HAL_Delay(50);
@@ -135,7 +135,7 @@ uint8_t detect1000(void){
 	return flag1000;
 }
 
-uint8_t stateBatal(void){
+uint8_t stateBatal(void){ //cancel the process
 	uint8_t flagBatal = 0;
 	if(HAL_GPIO_ReadPin(GPIOB, btnbatal_Pin) == GPIO_PIN_SET){
 		HAL_Delay(50);
@@ -147,7 +147,7 @@ uint8_t stateBatal(void){
 	return flagBatal;
 }
 
-uint8_t stateProses(void){
+uint8_t stateProses(void){ //finish the process
 	uint8_t flagproses = 0;
 	if(HAL_GPIO_ReadPin(GPIOB, btnpros_Pin) == GPIO_PIN_SET){
 		HAL_Delay(50);
@@ -159,29 +159,29 @@ uint8_t stateProses(void){
 	return flagproses;
 }
 
-void dropBrg(void){
+void dropBrg(void){ //drop the coke
 	HAL_GPIO_WritePin(GPIOA, dropCola_Pin, SET);
 	HAL_Delay(1000);
 	HAL_GPIO_WritePin(GPIOA, dropCola_Pin, RESET);
 }
 
-void ONproses(void){
+void ONproses(void){ // indicator that vending is ready to process
 	HAL_GPIO_WritePin(GPIOA, ledpros_Pin, SET);
 	HAL_Delay(50);
 }
 
-void OFFproses(void){
+void OFFproses(void){ //indicator for finished process or process is cancelled
 	HAL_GPIO_WritePin(GPIOA, ledpros_Pin, RESET);
 	HAL_Delay(50);
 }
 
-void ONkembalian500(void){
+void ONkembalian500(void){ // indicator for change with coin 500
 	HAL_GPIO_WritePin(GPIOA, chg500_Pin, SET);
 	HAL_Delay(1000);
 	HAL_GPIO_WritePin(GPIOA, chg500_Pin, RESET);
 }
 
-void ONkembalian1000(void){
+void ONkembalian1000(void){ // indicator for change with coin 1000
 	HAL_GPIO_WritePin(GPIOA, chg1000_Pin, SET);
 	HAL_Delay(1000);
 	HAL_GPIO_WritePin(GPIOA, chg1000_Pin, RESET);
