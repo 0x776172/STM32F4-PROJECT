@@ -1,0 +1,13 @@
+main.c:19:5:main	8	static
+main.c:114:9:detect500	16	static
+main.c:126:9:detect1000	16	static
+main.c:138:9:stateBatal	16	static
+main.c:150:9:stateProses	16	static
+main.c:162:6:dropBrg	8	static
+main.c:168:6:ONproses	8	static
+main.c:173:6:OFFproses	8	static
+main.c:178:6:ONkembalian500	8	static
+main.c:184:6:ONkembalian1000	8	static
+main.c:193:6:SystemClock_Config	88	static
+main.c:237:13:MX_GPIO_Init	40	static
+main.c:278:6:Error_Handler	4	static,ignoring_inline_asm
